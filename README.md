@@ -11,7 +11,7 @@ ssh root@<IP_СЕРВЕРА>
 
 ### 2. Установка Docker
 ```
-curl -sSL https://get.docker.com | sh
+apt update && apt install curl -y && curl -fsSL https://get.docker.com | sh
 ```
 
 Понадобится для запуска готового образа, который я для вас подготовил.
@@ -25,7 +25,7 @@ docker run -d \
   --name=wg-russian \
   -e WG_HOST=<IP_СЕРВЕРА> \
   -e PASSWORD= \
-  -v ~/.wg-easy:/etc/wireguard \
+  -v ~/.wg-russian:/etc/wireguard \
   -p 51820:51820/udp \
   -p 51821:51821/tcp \
   --cap-add=NET_ADMIN \
