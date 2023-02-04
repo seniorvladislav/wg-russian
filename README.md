@@ -23,11 +23,13 @@ apt update && apt install curl -y && curl -fsSL https://get.docker.com | sh
 ```
 docker run -d \
   --name=wg-russian \
+  --pull=always \
+  -e PORT=3000 \
   -e WG_HOST=<IP_СЕРВЕРА> \
   -e PASSWORD= \
   -v ~/.wg-russian:/etc/wireguard \
   -p 51820:51820/udp \
-  -p 51821:51821/tcp \
+  -p 80:3000/tcp \
   --cap-add=NET_ADMIN \
   --cap-add=SYS_MODULE \
   --sysctl="net.ipv4.conf.all.src_valid_mark=1" \
@@ -47,4 +49,13 @@ docker run -d \
 ```
 
 Панель управления доступна по адресу
-> http://<IP_СЕРВЕРА>:51821
+> http://<IP_СЕРВЕРА>
+
+## Обновление до последней версии
+
+### 1.
+```
+docker rm -f wg-russian
+```
+
+### 2. Выполнить команду из шага №3
