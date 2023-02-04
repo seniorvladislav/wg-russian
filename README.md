@@ -10,13 +10,18 @@ ssh root@<IP_СЕРВЕРА>
 Советую [этот](https://hshp.host/?from=7102) (из-за высокой производительности за небольшие деньги).
 
 ### 2. Установка Docker
+
+Если вы впервые подключились к серверу, выполните следующие команды:
+
 ```
-apt update && apt install curl -y && curl -fsSL https://get.docker.com | sh
+apt update && apt install curl -y
 ```
 
-Понадобится для запуска готового образа, который я для вас подготовил.
+А затем установите Docker следующей командой:
 
-*Приветствуется* **любой фидбэк**.
+```
+curl -fsSL https://get.docker.com | sh
+```
 
 ### 3. Запуск контейнера
 
@@ -48,14 +53,16 @@ docker run -d \
 -e WG_DEFAULT_DNS=77.88.8.88,77.88.8.2
 ```
 
+В примере выше показываются сервера [Яндекс DNS](https://dns.yandex.ru/)
+
 Панель управления доступна по адресу
 > http://<IP_СЕРВЕРА>
 
 ## Обновление до последней версии
 
-### 1.
+1.
 ```
 docker rm -f wg-russian
 ```
 
-### 2. [Повторить шаг #3](https://github.com/seniorvladislav/wg-russian/blob/main/README.md#3-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D0%B0)
+2. [Повторить шаг #3](https://github.com/seniorvladislav/wg-russian/blob/main/README.md#3-%D0%B7%D0%B0%D0%BF%D1%83%D1%81%D0%BA-%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D0%B0)
